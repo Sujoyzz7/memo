@@ -91,6 +91,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build application
+        run: pnpm build
+
       - name: Start application
         run: pnpm start &
 
@@ -98,7 +101,7 @@ jobs:
         uses: jakejarvis/wait-action@v0.1.1
         with:
           url: http://localhost:3000
-          timeout: 60
+          timeout: 120
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v4
